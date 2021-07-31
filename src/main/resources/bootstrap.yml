@@ -1,0 +1,34 @@
+server:
+  port: ${port.reservation-meetingroom-application}
+
+spring:
+  application:
+    name: reservation-meetingroom-application
+  profiles:
+    active: local
+
+application:
+  project-name: reservation-meetingroom-application #logback-spring.xml > project-name
+
+logging:
+  path:
+    root: /var/log/reservation-meetingroom
+  file: ${logging.path.root}/${application.project-name}/${spring.application.name}.log
+
+---
+spring:
+  profiles: local
+  cloud:
+    config:
+      uri: http://localhost:8500
+
+logging:
+  path:
+    root: C:\project\reservation\logs\meetingroom
+
+---
+spring:
+  profiles: prod
+  cloud:
+    config:
+      uri: http://localhost:8500

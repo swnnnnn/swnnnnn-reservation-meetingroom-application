@@ -1,0 +1,74 @@
+spring:
+  h2:
+    console:
+      enabled: true
+
+application:
+  api:
+    version-url:
+      v1: /v1
+
+auth:
+  header: Authorization
+  prefix: "Bearer "
+
+---
+spring:
+  profiles: local
+
+logging:
+  level:
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.sqltiming: debug
+    jdbc.audit: off
+    jdbc.resultset: off
+    jdbc.resultsettable: debug
+    jdbc.connection: off
+    io.netty.util: error
+
+---
+spring:
+  profiles: dev
+
+logging:
+  level:
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.sqltiming: off
+    jdbc.audit: off
+    jdbc.resultset: debug
+    jdbc.resultsettable: debug
+    jdbc.connection: off
+    io.netty.util: error
+
+---
+spring:
+  profiles: stag
+
+
+logging:
+  level:
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.sqltiming: off
+    jdbc.audit: off
+    jdbc.resultset: debug
+    jdbc.resultsettable: debug
+    jdbc.connection: off
+    io.netty.util: error
+
+---
+spring:
+  profiles: prod
+
+logging:
+  level:
+    jdbc: off
+    jdbc.sqlonly: off
+    jdbc.sqltiming: off
+    jdbc.audit: off
+    jdbc.resultset: debug
+    jdbc.resultsettable: debug
+    jdbc.connection: off
+    io.netty.util: error
